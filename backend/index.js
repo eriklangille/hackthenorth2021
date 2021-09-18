@@ -11,6 +11,9 @@ const app = express()
 const port = 3000
 
 app.use('/photo', photo)
+app.use(express.json())
+
+app.use('/registration', registration)
 app.use('/reminders', reminders);
 app.use('/family', family)
 
