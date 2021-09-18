@@ -1,12 +1,25 @@
 import React from 'react';
+import '../App.scss';
 import '../styles/checklist-item.scss';
 
+// todo: status variable
+
 const ChecklistItem = (props) => {
+    let addClass = "";
+    let dateContext = "scheduled for"
+    if (props.status) {
+        addClass = " checked"
+        dateContext = "completed at"
+    }
+    if (props.time == "" || props.time == null) {
+        dateContext = "";
+    }
+
     return (
-        <div className="checklist-item">
-            <div className="checklist-item-status checked"></div>
-            <div className="checklist-item-name">Morning medication</div>
-            <div className="checklist-item-date">scheduled for 10:00am</div>
+        <div className={"checklist-item" + addClass}>
+            <div className="checklist-item-status"></div>
+            <div className="checklist-item-name">{props.name}</div>
+            <div className="checklist-item-date">{dateContext} {props.time}</div>
         </div>
     )
 }
