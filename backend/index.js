@@ -5,6 +5,8 @@ const reminders = require('./routes/reminders');
 const app = express()
 const port = 3000
 
+app.use(express.json())
+
 app.use('/reminders', reminders);
 
 app.get('/', (req, res) => {
