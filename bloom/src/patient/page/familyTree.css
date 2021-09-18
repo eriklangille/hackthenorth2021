@@ -16,5 +16,15 @@
 }
 
 .page {
-    height: 100vh;
+    height: 100vh; /* define max width to what the family tree will shrink*/
+}
+
+.family-card {
+    width: 100px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
 }

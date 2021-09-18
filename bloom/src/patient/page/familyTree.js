@@ -82,7 +82,7 @@ export default function FamilyTree(props) {
         </div>
         <div className="family-flex">
             <div className="family-card">
-                <img src={familyTreeData.mainImageURL}/>
+                <div className="profile-pic" style={{backgroundImage: `url(${familyTreeData.mainImageURL})`}}/>
                 {familyTreeData.name}
             </div>
         </div>
