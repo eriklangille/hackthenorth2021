@@ -1,0 +1,20 @@
+.family-flex {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+
+.node {
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.node-children {
+    margin-left:50%;
+    margin-right:50%;
+}
+
+.page {
+    height: 100vh;
+}
