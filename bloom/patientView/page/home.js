@@ -2,10 +2,21 @@ import '../../src/App.scss';
 import ChecklistItem from '../../src/components/ChecklistItem.js'
 
 function Home() {
+    let date = new Date();
+    let dateText = new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(date);
+    let greeting = "Hello, "
+    if (date.getHours() < 12) {
+        greeting = "Good morning, "
+    } else if (date.getHours < 18) {
+        greeting = "Good afternoon, "
+    } else {
+        greeting = "Good evening, "
+    }
+
     return (
         <div className="wrapper">
-            <div id="date">Friday, September 17, 2021</div>
-            <div id="title">Good morning, Mary</div>
+            <div id="date">{dateText}</div>
+            <div id="title">{greeting}Mary</div>
             <div className="nav">
                 <div className="nav-button" id="nav-family">Family tree</div>
                 <div className="nav-button" id="nav-p1"></div>
