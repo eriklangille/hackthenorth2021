@@ -11,7 +11,7 @@ const familyTreeData = {
         {
             name: "Charlie",
             mainRelationship: "dad",
-            altImageURL: "https://cdn.pixabay.com/photo/2017/06/26/02/47/man-2442565__340.jpg",
+            mainImageURL: "https://cdn.pixabay.com/photo/2017/06/26/02/47/man-2442565__340.jpg",
             altName: "Linda",
             altRelationship: "mom",
             altImageURL: "https://cdn.pixabay.com/photo/2015/11/07/11/17/woman-1031000__340.jpg"
@@ -75,28 +75,28 @@ const familyTreeData = {
 
 export default function FamilyTree(props) {
     return (
-      <div className="page">
-        <div className="family-flex">  
-        {familyTreeData.parents.map(parentNode =>(
+        <div className="page">
+            <div className="family-flex">
+                {familyTreeData.parents.map(parentNode => (
                     <p>{parentNode.name}</p>))}
-        </div>
-        <div className="family-flex">
-            <div className="family-card">
-                <div className="profile-pic" style={{backgroundImage: `url(${familyTreeData.mainImageURL})`}}/>
-                {familyTreeData.name}
+            </div>
+            <div className="family-flex">
+                <div className="family-card">
+                    <div className="profile-pic" style={{ backgroundImage: `url(${familyTreeData.mainImageURL})` }} />
+                    {familyTreeData.name}
+                </div>
+            </div>
+            <div className="family-flex">
+                {familyTreeData.children.map(node => (
+                    <div className="node">
+                        <p>{node.name}</p>
+                        <div className="family-flex">
+                            {node.children.map(childrenNode => (
+                                <div className="node-children"><p>{childrenNode.name}</p></div>))}
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
-        <div className="family-flex">
-        {familyTreeData.children.map(node => (
-            <div className="node">
-                <p>{node.name}</p>
-                <div className="family-flex">
-                {node.children.map(childrenNode =>(
-                    <div className="node-children"><p>{childrenNode.name}</p></div>))}
-                </div>                
-            </div>
-        ))}
-        </div>
-      </div>
     );
-  }
+}

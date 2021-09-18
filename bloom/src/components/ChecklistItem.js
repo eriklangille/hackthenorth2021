@@ -12,12 +12,12 @@ const ChecklistItem = (props) => {
         addClass = " checked"
         dateContext = "completed at"
     }
-    if (props.time == "" || props.time == null) {
+    if (props.time === "" || props.time === null) {
         dateContext = "";
     }
 
     return (
-        <div className={"checklist-item" + addClass} onClick={() => {setState(!state)}}>
+        <div className={"checklist-item" + addClass} onClick={() => { setState(!state) }}>
             <div className="checklist-item-status"></div>
             <div className="checklist-item-name">{props.name}</div>
             <div className="checklist-item-date">{dateContext} {props.time}</div>
