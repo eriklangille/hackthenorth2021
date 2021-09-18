@@ -20,14 +20,12 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   const title = req.body.title
   const userId = req.body.userId;
-  console.log("YES SIR")
   await sql.connect(config).then(pool => {
     return pool.request()
     .input('title', sql.VarChar(255), title)
     .input('userId', sql.Int, userId)
     .query("insert into todo(title, userId, createDate) values (@title, @userId, getdate())")
   }).then(()=> {
-    console.log("mhmm")
     res.sendStatus(200);
   }).catch(() => {
     res.sendStatus(400);
