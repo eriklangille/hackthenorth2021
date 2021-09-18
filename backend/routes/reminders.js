@@ -4,6 +4,8 @@ const router = express.Router();
 const data = require('../data/reminders.json')
 const config = require("../sql/sql")
 
+// @route GET /reminders/:id
+// @desc Retrieve all reminders in order of creation
 router.get("/", async (req, res) => {
   await sql.connect(config).then(pool => {
     return pool.request()
@@ -13,12 +15,54 @@ router.get("/", async (req, res) => {
   })
 });
 
+// @route POST /reminders/:id
+// @desc Create a new reminder
+router.post("/", async (req, res) => {
+  const title = req.body.title;
+  const userId = req.body.userId;
+  await sql.connect(config).then(pool => {
+    return pool.request()
+    .input('title', sql.VarChar(255), title)
+    .input('userId', sql.Int, userId)
+    .query("insert into todo(title, userId, createDate) values (@title, @userId, getdate())")
+  }).then(result => {
+    return res.status(200);
+  }).catch(() => {
+    return res.status(400);
+  })
+});
+
+// @route GET /reminders/:id
+// @desc Retrieve a specific reminder
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   await sql.connect(config).then(pool => {
     return pool.request()
     .input('id', sql.Int, id)
     .query("select * from todo where id = @id")
+  }).then(result => {
+    return res.json(result.recordset);
+  })
+});
+
+// @route POST /reminders/:id
+// @desc Update an existing reminder
+router.post("/:id", async (req, res) => {
+  const { id } = req.params;
+  const title = req.body.title;
+  const setComplete = req.body.setComplete;
+  await sql.connect(config).then(pool => {
+    if (setComplete)
+    {
+      return pool.request()
+      .input('id', sql.Int, id)
+      .input('title', sql.VarChar(255), title)
+      .query("update todo set title = @title, completeDate = getdate() where id = @id")
+    }
+    return pool.request()
+    .input('id', sql.Int, id)
+    .input('title', sql.VarChar(255), title)
+    .query("update todo set title = @title, completeDate = null where id = @id")
   }).then(result => {
     return res.json(result.recordset);
   })
