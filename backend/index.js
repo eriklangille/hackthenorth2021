@@ -1,4 +1,5 @@
 require('dotenv').config()
+var cors = require('cors')
 
 const express = require('express')
 
@@ -10,6 +11,7 @@ const reminders = require('./routes/reminders')
 const app = express()
 const port = 3000
 
+app.use(cors())
 app.use('/photo', photo)
 app.use(express.json())
 
