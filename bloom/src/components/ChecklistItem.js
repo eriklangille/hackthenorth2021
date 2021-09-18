@@ -1,13 +1,14 @@
 import React from 'react';
+import { useState } from 'react';
 import '../App.scss';
 import '../styles/checklist-item.scss';
 
-// todo: status variable
-
 const ChecklistItem = (props) => {
+    let [state, setState] = useState(props.status)
+
     let addClass = "";
     let dateContext = "scheduled for"
-    if (props.status) {
+    if (state) {
         addClass = " checked"
         dateContext = "completed at"
     }
@@ -16,7 +17,7 @@ const ChecklistItem = (props) => {
     }
 
     return (
-        <div className={"checklist-item" + addClass}>
+        <div className={"checklist-item" + addClass} onClick={() => {setState(!state)}}>
             <div className="checklist-item-status"></div>
             <div className="checklist-item-name">{props.name}</div>
             <div className="checklist-item-date">{dateContext} {props.time}</div>
