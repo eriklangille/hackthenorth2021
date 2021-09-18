@@ -1,9 +1,10 @@
-import react from "react"
 import { Link, Route, BrowserRouter, Switch } from "react-router-dom"
 import { backendEndpoint } from "../static"
 
-export default function ({ children }) {
-	return (
+const FamilyLogin = ({ children }) => {
+	let userId = localStorage.getItem("id")
+
+	return userId ? children : (
 		<BrowserRouter>
 			<Switch>
 				<Route path="/family/login">
@@ -63,9 +64,6 @@ const Register = () => {
 				r.name,
 				r.value
 			])).toString();
-			const res = await fetch(url, {
-				method: 'post'
-			})
 		}}>
 			<label>
 				Phone Number (with area code):
@@ -92,3 +90,5 @@ const Register = () => {
 		</form>
 	</div>
 }
+
+export default FamilyLogin

@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import FamilyLogin from './components/FamilyLogin';
-import { Route, Router, BrowserRouter, Switch } from 'react-router-dom';
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
 function App() {
   return (
@@ -13,7 +12,9 @@ function App() {
       </Switch>
       <Switch>
         <Route path="/family">
-          <FamilyLogin />
+          <FamilyLogin>
+            Hello World
+          </FamilyLogin>
         </Route>
       </Switch>
     </BrowserRouter>
