@@ -1,5 +1,5 @@
-import '../../src/App.scss';
-import ChecklistItem from '../../src/components/ChecklistItem.js'
+import { Link } from 'react-router-dom';
+import ChecklistItem from '../../components/ChecklistItem'
 
 function Home() {
     return (
@@ -7,7 +7,7 @@ function Home() {
             <div id="date">Friday, September 17, 2021</div>
             <div id="title">Good morning, Mary</div>
             <div className="nav">
-                <div className="nav-button" id="nav-family">Family tree</div>
+                <Link to="/tree"><div className="nav-button" id="nav-family">Family tree</div></Link>
                 <div className="nav-button" id="nav-p1"></div>
                 <div className="nav-button" id="nav-p2"></div>
                 <div className="nav-button" id="nav-p3"></div>
