@@ -7,12 +7,12 @@ import { backendEndpoint } from './static';
 import SettingPage from './patient/page/setting';
 
 function App() {
-  const user = localStorage.getItem("myid")
+  let user = localStorage.getItem("myid")
   if (!user) {
-    const newUserId = parseInt(Math.random() * 2000000000)
-    localStorage.setItem("myid", newUserId)
+    user = parseInt(Math.random() * 2000000000)
+    localStorage.setItem("myid", user)
 
-    const url = new URL(backendEndpoint + "user?user=" + newUserId)
+    const url = new URL(backendEndpoint + "user?user=" + user)
 
     fetch(url, {
       method: "post"
@@ -21,7 +21,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Link to="/setting">Settings</Link>
+      {/* <Link to="/setting">Settings</Link> */}
       <Switch>
         <Route path="/family">
           <FamilyLogin>
@@ -38,6 +38,7 @@ function App() {
           <Home />
         </Route>
       </Switch>
+      <p class="userid">User ID: {user}</p>
     </BrowserRouter>
   );
 }
