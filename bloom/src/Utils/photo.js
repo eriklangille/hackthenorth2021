@@ -6,6 +6,7 @@ export async function getPhotoUrls(idType) {
 
 	try {
 		res = await fetch(`${backendEndpoint}photo/user/${userId}`)
+		res = await res.json()
 	} catch (e) {
 		console.log(e)
 	}
