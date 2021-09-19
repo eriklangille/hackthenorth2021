@@ -20,10 +20,11 @@ const FamilyChecklist = () => {
 			<div className="checklist family-checklist">
 				{todoData.map(r => (
 					<ChecklistItem
+						loginType={familyId}
 						data={r}
 					/>
 				))}
-				<NewChecklistButton />
+				<NewChecklistButton loginType={familyId} />
 			</div>
 			<div className="background-image"><img src="../bloom-background.svg"></img></div>
 		</div>
