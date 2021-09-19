@@ -7,15 +7,19 @@ import './Family.scss'
 
 const FamilyChecklist = () => {
 	return (
-		<div class="phone horizontally-centered">
-			<div className="checklist">
+		<div className="phone horizontally-centered">
+			<div className="family-nav">
+				<Link to="/family"><span className="back-button">Back</span></Link>
+				<h1>Edit Checklist</h1>
+			</div>
+			<div className="checklist family-checklist">
                 <ChecklistItem status={true} name="Breakfast" time="6:30am"></ChecklistItem>
                 <ChecklistItem status={false} name="Morning medication" time="10:00am"></ChecklistItem>
                 <ChecklistItem status={false} name="Lunch" time=""></ChecklistItem>
                 <ChecklistItem status={false} name="Dinner" time=""></ChecklistItem>
                 <ChecklistItem status={false} name="Night medication" time=""></ChecklistItem>
             </div>
-			<div class="background-image"><img src="../bloom-background.svg"></img></div>
+			<div className="background-image"><img src="../bloom-background.svg"></img></div>
 		</div>
 	)
 }
