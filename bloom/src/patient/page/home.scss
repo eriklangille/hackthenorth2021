@@ -121,6 +121,7 @@ body {
 
 .home__photo {
   border-radius: 30px;
+  width: 25%;
   object-fit: cover;
   margin: 0 10px;
   height: 120px;
@@ -130,12 +131,18 @@ body {
   cursor: pointer;
   margin: 0;
   height: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   overflow-x: scroll;
   overflow-y: hidden;
 
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 
+    div {
+        width: 25%;
+    }
     
 
 }
