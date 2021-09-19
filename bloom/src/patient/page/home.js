@@ -54,6 +54,7 @@ function Home() {
                     />
                 </div>
             </Modal>
+        <p className="userid">User ID: {user}</p>
         </div>
     );
 }
