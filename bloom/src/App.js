@@ -1,24 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import FamilyLogin from './components/FamilyLogin';
+import { Route, BrowserRouter, Switch, Link } from 'react-router-dom';
+import Home from './patient/page/home';
+import FamilyTree from './patient/page/familyTree';
+import { backendEndpoint } from './static';
+import SettingPage from './patient/page/setting';
 
 function App() {
+  const user = localStorage.getItem("myid")
+  if (!user) {
+    const newUserId = parseInt(Math.random() * 2000000000)
+    localStorage.setItem("myid", newUserId)
+
+    const url = new URL(backendEndpoint + "user?user=" + newUserId)
+
+    fetch(url, {
+      method: "post"
+    })
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Link to="/setting">Settings</Link>
+      <Switch>
+        <Route path="/family">
+          <FamilyLogin>
+            Hello World
+          </FamilyLogin>
+        </Route>
+        <Route path="/tree">
+          <FamilyTree />
+        </Route>
+        <Route path="/setting">
+          <SettingPage />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
