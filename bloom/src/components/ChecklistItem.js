@@ -5,7 +5,7 @@ import "./Checklistitem.scss";
 import { userId } from '../Utils/ids';
 import { backendEndpoint } from '../static';
 
-export const ChecklistItem = ({ data: { title, completeDate, targetDate, id } }) => {
+export const ChecklistItem = ({ data: { title, completeDate, targetDate, id }, loginType = userId }) => {
     let [state, setState] = useState(completeDate !== null)
     const [dateComp, setCompleted] = useState(new Date(completeDate))
     targetDate = new Date(targetDate)
@@ -19,7 +19,7 @@ export const ChecklistItem = ({ data: { title, completeDate, targetDate, id } })
     const targetMessage = "scheduled for " + targetDate
 
     const updateCompletedDate = async (dc) => {
-        const user = localStorage.getItem(userId)
+        const user = localStorage.getItem(loginType)
 
         const url = new URL(backendEndpoint + "reminders/" + id)
 
@@ -62,7 +62,7 @@ export const ChecklistItem = ({ data: { title, completeDate, targetDate, id } })
     )
 }
 
-export const NewChecklistButton = (props) => {
+export const NewChecklistButton = ({ loginType = userId }) => {
     const [modalVisible, setModalVisible] = useState(false)
 
     return (
@@ -74,7 +74,7 @@ export const NewChecklistButton = (props) => {
                     <form onSubmit={async e => {
                         e.preventDefault()
 
-                        const user = localStorage.getItem(userId)
+                        const user = localStorage.getItem(loginType)
 
                         const url = new URL(backendEndpoint + "reminders")
 
@@ -89,6 +89,8 @@ export const NewChecklistButton = (props) => {
                                 targetDate: e.target[1].value.toString()
                             })
                         })
+
+                        setModalVisible(false)
                     }}>
                         <label>
                             <div>Title</div>

@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
 		const pwdHash = create(formattedPhone, password)
 
 		const p = (await pool()).request()
-			.input('phone', sql.VarChar(255), formattedPhone)
+			.input('phone', sql.Int, parseInt(formattedPhone.substring(1)))
 			.input('password', sql.VarChar(255), pwdHash)
 			.input('firstname', sql.VarChar(255), firstname)
 			.input('lastname', sql.VarChar(255), lastname)
@@ -42,10 +42,11 @@ router.get("/", async (req, res) => {
 	let formattedPhone = phoneNumberFormatter(phone)
 	const query = await (await pool())
 		.request()
+		.input('phone', sql.Int, parseInt(formattedPhone.substring(1)))
 		.query(`
 		SELECT *
 		from family
-		where phone = ${formattedPhone}
+		where phone = @phone
 	`)
 
 	if (query.recordset.length === 1 && validate(formattedPhone, password, query.recordset[0].pwdHash)) {
