@@ -40,7 +40,6 @@ function Home() {
                   {photoUrls[0] ? <img className="home__photo" src={photoUrls[0].urlString} /> : null}
                   {photoUrls[1] ? <img className="home__photo" src={photoUrls[1].urlString} /> : null}
                 </div>
-                <div onClick={() => setModalVisible(true)} className="nav-button" id="nav-p3"></div>
             </div>
             <div className="checklist">
                 {todoData.map(r => (
