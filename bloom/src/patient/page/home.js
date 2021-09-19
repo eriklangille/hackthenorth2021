@@ -11,7 +11,7 @@ import "./home.scss"
 
 function Home() {
     const history = useHistory()
-    const photoUrls = useAwait(() => getPhotoUrls(userId), [])
+    const photoUrls = useAwait(() => getPhotoUrls(userId)) ?? []
 
     const [modalVisible, setModalVisible] = useState(false)
 

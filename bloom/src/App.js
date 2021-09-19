@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import FamilyLogin from './components/FamilyLogin';
 import { Route, BrowserRouter, Switch, Link } from 'react-router-dom';
 import Home from './patient/page/home';
