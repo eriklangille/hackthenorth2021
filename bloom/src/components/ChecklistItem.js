@@ -4,6 +4,7 @@ import { Modal } from './Modal';
 import "./Checklistitem.scss";
 import { userId } from '../Utils/ids';
 import { backendEndpoint } from '../static';
+import { useHistory } from 'react-router';
 
 export const ChecklistItem = ({ data: { title, completeDate, targetDate, id }, loginType = userId }) => {
     let [state, setState] = useState(completeDate !== null)
@@ -64,6 +65,7 @@ export const ChecklistItem = ({ data: { title, completeDate, targetDate, id }, l
 
 export const NewChecklistButton = ({ loginType = userId }) => {
     const [modalVisible, setModalVisible] = useState(false)
+    const history = useHistory()
 
     return (
         <div className={"checklist-item"} onClick={() => { setModalVisible(true) }}>
@@ -90,6 +92,7 @@ export const NewChecklistButton = ({ loginType = userId }) => {
                             })
                         })
 
+                        history.go(0)
                         setModalVisible(false)
                     }}>
                         <label>
