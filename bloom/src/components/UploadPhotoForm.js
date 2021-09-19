@@ -19,6 +19,11 @@ export function UploadPhotoForm({ destinationUrl }) {
 					<p>Drop the files here ...</p> :
 					<p>Drag 'n' drop some files here, or click to select files</p>
 			}
+			<div>
+				{acceptedFiles.map(f => (
+					<div>{f.name}</div>
+				))}
+			</div>
 			<button onClick={() => {
 				acceptedFiles.forEach((f) => {
 					const formData = new FormData()
