@@ -6,18 +6,21 @@ $text-dark: #000000;
 
 
 .phone {
-    width: 100vw;
-    height: 100vh;
-
     &:not(.vertically-centered) {
         margin-top: 50px;
     }
 }
 
 .vertically-centered {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 .horizontally-centered {
@@ -155,7 +158,7 @@ form {
 }
 
 .background-image {
-    position: absolute;
+    position: fixed;
     z-index: -100;
 
     bottom: 0;
@@ -204,14 +207,14 @@ form {
     width: 100%;
     height: 48px;
 
-    position: absolute;
+    position: fixed;
     top: 0;
 
     h1 {
         text-align: center;
         font-size: 1.2em;
         margin-top: 13px;
-        margin-bottom: 0;
+        margin-bottom: -10px;
         color: $text-light;
     }
 }

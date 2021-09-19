@@ -17,11 +17,13 @@ const FamilyLogin = ({ children }) => {
 					<Register />
 				</Route>
 				<Route path="/">
-					<div className="phone horizontally-centered vertically-centered">
-						<div className="logo"><img src='../bloom-logo.svg'></img></div>
-						<div className="selection-screen">
-							<div><Link to="/family/register"><input type="button" value="Create an account" className="primary-button" /></Link></div>
-							<div><Link to="/family/login"><input type="button" value="Sign in to my account" className="secondary-button" /></Link></div>
+					<div className="phone horizontally-centered">
+						<div className="vertically-centered">
+							<div className="logo"><img src='../bloom-logo.svg'></img></div>
+							<div className="selection-screen">
+								<div><Link to="/family/register"><input type="button" value="Create an account" className="primary-button" /></Link></div>
+								<div><Link to="/family/login"><input type="button" value="Sign in to my account" className="secondary-button" /></Link></div>
+							</div>
 						</div>
 						<div className="background-image"><img src="../bloom-background.svg"></img></div>
 					</div>
