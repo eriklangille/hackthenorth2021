@@ -130,5 +130,23 @@ body {
   cursor: pointer;
   margin: 0;
   height: 120px;
-  width: 400px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+    
+
+}
+
+::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+    background: transparent;
+}
+
+
+::-webkit-scrollbar-corner {
+    background: transparent;
 }

@@ -37,10 +37,10 @@ function Home() {
             <div className="nav">
                 <div onClick={() => history.push("/tree")} className="nav-button" id="nav-family">Family tree</div>
                 <div onClick={() => history.push("/photo")} className="home__photo_gallery">
-                  {photoUrls[0] ? <img className="home__photo" src={photoUrls[0].urlString} /> : null}
-                  {photoUrls[1] ? <img className="home__photo" src={photoUrls[1].urlString} /> : null}
+                    {photoUrls[0] ? <img className="home__photo" src={photoUrls[0].urlString} /> : null}
+                    {photoUrls[1] ? <img className="home__photo" src={photoUrls[1].urlString} /> : null}
+                    {photoUrls[2] ? <img className="home__photo" src={photoUrls[2].urlString} /> : null}
                 </div>
-                <div onClick={() => setModalVisible(true)} className="nav-button" id="nav-p3"></div>
             </div>
             <div className="checklist">
                 {todoData.map(r => (
@@ -56,7 +56,7 @@ function Home() {
                     />
                 </div>
             </Modal>
-        <p className="userid">User ID: {user}</p>
+            <p className="userid">User ID: {user}</p>
         </div>
     );
 }
