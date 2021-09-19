@@ -11,7 +11,10 @@ export function Modal({ children, isVisible, setVisible }) {
 			alignItems: "center",
 			justifyContent: "center",
 		}}
-		onClick={() => setVisible(false)}>
+		onClick={(e) => {
+			e.stopPropagation()
+			setVisible(false)
+		}}>
 		<div onClick={(e) => e.stopPropagation()}>
 			{children}
 		</div>

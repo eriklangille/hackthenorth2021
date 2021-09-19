@@ -1,21 +1,22 @@
-import './App.css';
+import './App.scss';
 import FamilyLogin from './components/FamilyLogin';
 import { Route, BrowserRouter, Switch, Link } from 'react-router-dom';
 import Home from './patient/page/home';
 import FamilyTree from './patient/page/familyTree';
-import FamilyHome from './components/FamilyHome'
+import FamilyHome from './components/FamilyHome';
+import FamilyChecklist from './components/FamilyChecklist';
 import { backendEndpoint } from './static';
 import SettingPage from './patient/page/setting';
 import Photo from './patient/page/photo';
 import { userId } from './Utils/ids';
 
 function App() {
-  const user = localStorage.getItem(userId)
+  let user = localStorage.getItem(userId)
   if (!user) {
-    const newUserId = parseInt(Math.random() * 2000000000)
-    localStorage.setItem(userId, newUserId)
+    user = parseInt(Math.random() * 2000000000)
+    localStorage.setItem(userId, user)
 
-    const url = new URL(backendEndpoint + "user?user=" + newUserId)
+    const url = new URL(backendEndpoint + "user?user=" + user)
 
     fetch(url, {
       method: "post"
@@ -25,6 +26,11 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path="/family/checklist">
+          <FamilyLogin>
+            <FamilyChecklist />
+          </FamilyLogin>
+        </Route>
         <Route path="/family">
           <FamilyLogin>
             <FamilyHome />
@@ -43,6 +49,7 @@ function App() {
           <Home />
         </Route>
       </Switch>
+      <p className="userid">User ID: {user}</p>
     </BrowserRouter>
   );
 }

@@ -17,13 +17,13 @@ const FamilyLogin = ({ children }) => {
 					<Register />
 				</Route>
 				<Route path="/">
-					<div class="phone horizontally-centered vertically-centered">
-						<div class="logo"><img src='../bloom-logo.svg'></img></div>
-						<div class="selection-screen">
-							<div><Link to="/family/register"><input type="button" value="Create an account" class="primary-button" /></Link></div>
-							<div><Link to="/family/login"><input type="button" value="Sign in to my account" class="secondary-button" /></Link></div>
+					<div className="phone horizontally-centered vertically-centered">
+						<div className="logo"><img src='../bloom-logo.svg'></img></div>
+						<div className="selection-screen">
+							<div><Link to="/family/register"><input type="button" value="Create an account" className="primary-button" /></Link></div>
+							<div><Link to="/family/login"><input type="button" value="Sign in to my account" className="secondary-button" /></Link></div>
 						</div>
-						<div class="background-image"><img src="../bloom-background.svg"></img></div>
+						<div className="background-image"><img src="../bloom-background.svg"></img></div>
 					</div>
 				</Route>
 			</Switch>
@@ -32,7 +32,7 @@ const FamilyLogin = ({ children }) => {
 }
 
 const Login = () => {
-	return <div class="phone horizontally-centered">
+	return <div className="phone horizontally-centered">
 		<form onSubmit={async (e) => {
 			e.preventDefault()
 
@@ -49,31 +49,31 @@ const Login = () => {
 			window.location.reload(false); // page reload
 		}}>
 
-			<div class="logo"><img src='../bloom-logo.svg'></img></div>
+			<div className="logo"><img src='../bloom-logo.svg'></img></div>
 			<h1>Sign in</h1>
-			<div class="input-form">
+			<div className="input-form">
 				<label>
-					<div class="input-form-label">Phone number</div>
-					<input type="text" name="phone" placeholder="(000) 000 0000" class="input-phonenumber" />
+					<div className="input-form-label">Phone number</div>
+					<input type="text" name="phone" placeholder="(000) 000 0000" className="input-phonenumber" />
 				</label>
 			</div>
-			<div class="input-form">
+			<div className="input-form">
 				<label>
-					<div class="input-form-label">Password</div>
-					<input type="password" name="password" class="input-password" />
+					<div className="input-form-label">Password</div>
+					<input type="password" name="password" className="input-password" />
 				</label>
 			</div>
 
-			<input type="submit" value="Log in →" class="submit-button"/>
+			<input type="submit" value="Log in →" className="submit-button"/>
 		</form>
 
-		<div class="footer-button">Don't have an account? <Link to="/family/register">Register here.</Link></div>
-		<div class="background-image"><img src="../bloom-background.svg"></img></div>
+		<div className="footer-button">Don't have an account? <Link to="/family/register">Register here.</Link></div>
+		<div className="background-image"><img src="../bloom-background.svg"></img></div>
 	</div>
 }
 
 const Register = () => {
-	return <div class="phone horizontally-centered">
+	return <div className="phone horizontally-centered">
 		<form onSubmit={async (e) => {
 			console.log("HELLO")
 			e.preventDefault()
@@ -93,44 +93,44 @@ const Register = () => {
 			
 			window.location.reload(false); // page reload
 		}}>
-			<div class="logo"><img src='../bloom-logo.svg'></img></div>
+			<div className="logo"><img src='../bloom-logo.svg'></img></div>
 			<h1>Create an account</h1>
-			<div class="input-form">
+			<div className="input-form">
 				<label>
-					<div class="input-form-label">Relative's account id</div>
-					<input type="number" name="user" placeholder="123456789" class="input-id" />
+					<div className="input-form-label">Relative's account id</div>
+					<input type="number" name="user" placeholder="123456789" className="input-id" />
 				</label>
 			</div>
-			<div class="input-form">
+			<div className="input-form">
 				<label>
-					<div class="input-form-label">Phone number</div>
-					<input type="text" name="phone" placeholder="(000) 000 0000" class="input-phonenumber" />
+					<div className="input-form-label">Phone number</div>
+					<input type="text" name="phone" placeholder="(000) 000 0000" className="input-phonenumber" />
 				</label>
 			</div>
-			<div class="input-form">
+			<div className="input-form">
 				<label>
-					<div class="input-form-label">First name</div>
-					<input type="text" name="firstname" placeholder="Jane" class="input-firstname" />
+					<div className="input-form-label">First name</div>
+					<input type="text" name="firstname" placeholder="Jane" className="input-firstname" />
 				</label>
 			</div>
-			<div class="input-form">
+			<div className="input-form">
 				<label>
-					<div class="input-form-label">Last name</div>
-					<input type="text" name="lastname" placeholder="Doe" class="input-lastname" />
+					<div className="input-form-label">Last name</div>
+					<input type="text" name="lastname" placeholder="Doe" className="input-lastname" />
 				</label>
 			</div>
-			<div class="input-form">
+			<div className="input-form">
 				<label>
-					<div class="input-form-label">Password</div>
-					<input type="password" name="password" class="input-password" />
+					<div className="input-form-label">Password</div>
+					<input type="password" name="password" className="input-password" />
 				</label>
 			</div>
 
-			<input type="submit" value="Register →" class="submit-button" />
+			<input type="submit" value="Register →" className="submit-button" />
 		</form>
 
-		<div class="footer-button">Already have an account? <Link to="/family/login">Sign in.</Link></div>
-		<div class="background-image"><img src="../bloom-background.svg"></img></div>
+		<div className="footer-button">Already have an account? <Link to="/family/login">Sign in.</Link></div>
+		<div className="background-image"><img src="../bloom-background.svg"></img></div>
 	</div>
 }
 

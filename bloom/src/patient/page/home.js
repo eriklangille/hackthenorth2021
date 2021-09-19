@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import ChecklistItem from '../../components/ChecklistItem'
+import { ChecklistItem, NewChecklistButton, } from '../../components/ChecklistItem'
 import { Modal } from '../../components/Modal';
 import { UploadPhotoForm } from '../../components/UploadPhotoForm';
 import { backendEndpoint } from '../../static';
 import { useAwait } from '../../Utils/await';
+import { getChecklistData } from '../../Utils/checklist';
 import { userId } from '../../Utils/ids';
 import { getPhotoUrls } from '../../Utils/photo';
 import "./home.scss"
 
 function Home() {
     const history = useHistory()
-    const photoUrls = useAwait(() => getPhotoUrls(userId), [])
+    const photoUrls = useAwait(() => getPhotoUrls(userId)) ?? []
 
     const [modalVisible, setModalVisible] = useState(false)
+    const todoData = useAwait(() => getChecklistData(userId), [])
 
     const user = localStorage.getItem(userId)
 
@@ -39,11 +41,12 @@ function Home() {
                 <div onClick={() => setModalVisible(true)} className="nav-button" id="nav-p3"></div>
             </div>
             <div className="checklist">
-                <ChecklistItem status={true} name="Breakfast" time="6:30am"></ChecklistItem>
-                <ChecklistItem status={false} name="Morning medication" time="10:00am"></ChecklistItem>
-                <ChecklistItem status={false} name="Lunch" time=""></ChecklistItem>
-                <ChecklistItem status={false} name="Dinner" time=""></ChecklistItem>
-                <ChecklistItem status={false} name="Night medication" time=""></ChecklistItem>
+                {todoData.map(r => (
+                    <ChecklistItem
+                        data={r}
+                    />
+                ))}
+                <NewChecklistButton />
             </div>
             <Modal isVisible={modalVisible} setVisible={setModalVisible}>
                 <div className="picture-upload-modal">

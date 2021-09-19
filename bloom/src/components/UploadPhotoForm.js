@@ -24,7 +24,7 @@ export function UploadPhotoForm({ destinationUrl }) {
 					<div>{f.name}</div>
 				))}
 			</div>
-			<button onClick={(e) => {
+			<button className="primary-button" onClick={(e) => {
 				e.stopPropagation()
 				acceptedFiles.forEach((f) => {
 					const formData = new FormData()
