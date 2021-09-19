@@ -251,8 +251,15 @@ form {
     margin-top: 10px;
 
     position: absolute;
-    top: 4px;
+    // top: 4px;
+    top: -2px;
     left: 8px;
+    
+    img {
+        filter: invert(100%) sepia(5%) saturate(755%) hue-rotate(7deg) brightness(120%) contrast(100%);
+        width: 34px;
+        height: 34px;
+    }
 }
 
 .picture-upload-modal {
