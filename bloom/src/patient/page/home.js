@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import ChecklistItem from '../../components/ChecklistItem'
 
 function Home() {
+    const history = useHistory()
+
     let date = new Date();
     let dateText = new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(date);
     let greeting = "Hello, "
@@ -18,10 +20,10 @@ function Home() {
             <div id="date">{dateText}</div>
             <div id="title">{greeting}Mary</div>
             <div className="nav">
-                <Link to="/tree"><div className="nav-button" id="nav-family">Family tree</div></Link>
-                <div className="nav-button" id="nav-p1"></div>
-                <div className="nav-button" id="nav-p2"></div>
-                <div className="nav-button" id="nav-p3"></div>
+                <div onClick={() => history.push("/tree")} className="nav-button" id="nav-family">Family tree</div>
+                <div onClick={() => history.push("/tree")} className="nav-button" id="nav-p1"></div>
+                <div onClick={() => history.push("/tree")} className="nav-button" id="nav-p2"></div>
+                <div onClick={() => history.push("/tree")} className="nav-button" id="nav-p3"></div>
             </div>
             <div className="checklist">
                 <ChecklistItem status={true} name="Breakfast" time="6:30am"></ChecklistItem>
