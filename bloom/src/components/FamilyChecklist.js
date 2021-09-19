@@ -1,11 +1,16 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import ChecklistItem from "./ChecklistItem"
+import { ChecklistItem, NewChecklistButton } from "./ChecklistItem"
 import { backendEndpoint } from "../static"
 import { familyId } from "../Utils/ids"
 import './Family.scss'
+import { useAwait } from "../Utils/await"
+import { getChecklistData } from "../Utils/checklist"
 
 const FamilyChecklist = () => {
+	const todoData = useAwait(() => getChecklistData(familyId), [])
+	console.log(localStorage.getItem(familyId))
+
 	return (
 		<div className="phone horizontally-centered">
 			<div className="family-nav">
@@ -13,12 +18,13 @@ const FamilyChecklist = () => {
 				<h1>Edit Checklist</h1>
 			</div>
 			<div className="checklist family-checklist">
-                <ChecklistItem status={true} name="Breakfast" time="6:30am"></ChecklistItem>
-                <ChecklistItem status={false} name="Morning medication" time="10:00am"></ChecklistItem>
-                <ChecklistItem status={false} name="Lunch" time=""></ChecklistItem>
-                <ChecklistItem status={false} name="Dinner" time=""></ChecklistItem>
-                <ChecklistItem status={false} name="Night medication" time=""></ChecklistItem>
-            </div>
+				{todoData.map(r => (
+					<ChecklistItem
+						data={r}
+					/>
+				))}
+				<NewChecklistButton />
+			</div>
 			<div className="background-image"><img src="../bloom-background.svg"></img></div>
 		</div>
 	)

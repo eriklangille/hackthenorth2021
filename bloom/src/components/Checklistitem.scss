@@ -1,0 +1,25 @@
+.new-checklist-prompt {
+	width: 40vw;
+	height: 40vh;
+	display: flex;
+	background-color: white;
+	justify-content: center;
+	form {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 1rem 2rem;
+		flex-grow: 1;
+
+		label {
+			&:not(:nth-child(3)) {
+				padding-bottom: 2rem;
+			}
+
+			align-content: space-between;
+			display: flex;
+			width: 100%;
+			justify-content: space-between;
+		}
+	}
+}
