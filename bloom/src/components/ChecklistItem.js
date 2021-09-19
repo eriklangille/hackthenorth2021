@@ -16,8 +16,8 @@ export const ChecklistItem = ({ data: { title, completeDate, targetDate, id }, l
         addClass = " checked"
     }
 
-    const completeMessage = "completed at " + dateComp
-    const targetMessage = "scheduled for " + targetDate
+    const completeMessage = "completed at " + dateComp?.toLocaleString([], { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+    const targetMessage = "scheduled for " + targetDate?.toLocaleString([], { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })
 
     const updateCompletedDate = async (dc) => {
         const user = localStorage.getItem(loginType)
