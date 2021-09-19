@@ -1,0 +1,24 @@
+.photoAlbum {
+  display: flex;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+}
+
+
+.Photos-enter-active {
+  transition: all 500ms ease-in-out;
+  width: 750px;
+}
+
+.Photos-exit-active {
+  transition: all 200ms ease-in-out;
+  width: 0px;
+}
+
+.Photos-enter-done {
+  width: fit-content;
+  min-width: 720px;
+}
+

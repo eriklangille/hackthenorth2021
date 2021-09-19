@@ -78,6 +78,7 @@ body {
             border-color: #fff;
 
             img {
+                display: inline-block;
             }
         }
     }
@@ -97,9 +98,9 @@ body {
     border-color: $primary;
 
     img {
-        width: 0px;
-        height: 0px;
-    }
+        display: none;
+		filter: invert(29%) sepia(99%) saturate(1054%) hue-rotate(178deg) brightness(92%) contrast(95%);
+	}
 }
 
 .checklist-item-name {
@@ -113,11 +114,15 @@ body {
     font-size: 0.95em;
 }
 
-.userid {
-    margin:0;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    font-size: 20px;
-    color: #848484;
+.picture-upload-modal {
+	width: 40vw;
+	height: 40vh;
+	background-color: white;
+}
+
+.nav {
+	img {
+		object-fit: cover;
+		width: 25%;
+	}
 }
