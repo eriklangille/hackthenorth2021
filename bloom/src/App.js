@@ -3,7 +3,8 @@ import FamilyLogin from './components/FamilyLogin';
 import { Route, BrowserRouter, Switch, Link } from 'react-router-dom';
 import Home from './patient/page/home';
 import FamilyTree from './patient/page/familyTree';
-import FamilyHome from './components/FamilyHome'
+import FamilyHome from './components/FamilyHome';
+import FamilyChecklist from './components/FamilyChecklist';
 import { backendEndpoint } from './static';
 import SettingPage from './patient/page/setting';
 import Photo from './patient/page/photo';
@@ -29,6 +30,11 @@ function App() {
           <FamilyLogin>
             <FamilyHome />
           </FamilyLogin>
+        </Route>
+        <Route path="/family/checklist">
+          {/* <FamilyLogin> */}
+            <FamilyChecklist />
+          {/* </FamilyLogin> */}
         </Route>
         <Route path="/tree">
           <FamilyTree />
