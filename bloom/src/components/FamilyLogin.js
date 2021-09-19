@@ -1,10 +1,11 @@
 import React from "react"
 import { Link, Route, BrowserRouter, Switch } from "react-router-dom"
 import { backendEndpoint } from "../static"
+import { familyId } from "../Utils/ids"
 import './FamilyLogin.scss'
 
 const FamilyLogin = ({ children }) => {
-	let familyid = localStorage.getItem("familyid")
+	let familyid = localStorage.getItem(familyId)
 
 	return familyid ? children : (
 		<BrowserRouter>
@@ -43,7 +44,7 @@ const Login = () => {
 			])).toString();
 			const res = await fetch(url)
 			const json = await res.json()
-			localStorage.setItem("familyid", json.userId)
+			localStorage.setItem(familyId, json.userId)
 		}}>
 
 			<div class="logo"><img src='../bloom-logo.svg'></img></div>
@@ -74,7 +75,7 @@ const Register = () => {
 		<form onSubmit={async (e) => {
 			e.preventDefault()
 
-			localStorage.setItem("familyid", e.target[4].value)
+			localStorage.setItem(familyId, e.target[4].value)
 
 			const url = new URL(backendEndpoint + "family")
 

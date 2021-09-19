@@ -5,12 +5,13 @@ import Home from './patient/page/home';
 import FamilyTree from './patient/page/familyTree';
 import { backendEndpoint } from './static';
 import SettingPage from './patient/page/setting';
+import { userId } from './Utils/ids';
 
 function App() {
-  const user = localStorage.getItem("myid")
+  const user = localStorage.getItem(userId)
   if (!user) {
     const newUserId = parseInt(Math.random() * 2000000000)
-    localStorage.setItem("myid", newUserId)
+    localStorage.setItem(userId, newUserId)
 
     const url = new URL(backendEndpoint + "user?user=" + newUserId)
 

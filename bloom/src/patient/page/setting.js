@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { backendEndpoint } from "../../static";
+import { userId } from "../../Utils/ids";
 
 export default function SettingPage() {
 	const [state, setState] = useState(null)
 	const history = useHistory();
 
-	const user = localStorage.getItem("id")
+	const user = localStorage.getItem(userId)
 
 	useEffect(() => {
 		const fetchData = async () => {
 
-			const user = localStorage.getItem("id")
+			const user = localStorage.getItem(userId)
 
 			const url = new URL(backendEndpoint + "user")
 			url.search = new URLSearchParams({ user }).toString();

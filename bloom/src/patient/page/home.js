@@ -4,6 +4,7 @@ import ChecklistItem from '../../components/ChecklistItem'
 import { Modal } from '../../components/Modal';
 import { UploadPhotoForm } from '../../components/UploadPhotoForm';
 import { backendEndpoint } from '../../static';
+import { userId } from '../../Utils/ids';
 import "./home.scss"
 
 function Home() {
@@ -11,7 +12,7 @@ function Home() {
 
     const [modalVisible, setModalVisible] = useState(false)
 
-    const user = localStorage.getItem("myid")
+    const user = localStorage.getItem(userId)
 
     let date = new Date();
     let dateText = new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(date);
