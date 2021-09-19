@@ -18,7 +18,7 @@ const FamilyHome = () => {
 			<div class="relative-description">Send Mary some love by sharing a recent photo and attaching a note.</div>
 			<div class="selection-screen">
 				<div><Link to="#"><input type="button" value="Send photo" class="primary-button" /></Link></div>
-				<div><Link to="#"><input type="button" value="Edit daily checklist" class="secondary-button" /></Link></div>
+				<div><Link to="/family/checklist"><input type="button" value="Edit daily checklist" class="secondary-button" /></Link></div>
 			</div>
 			<div class="footer-button">All done? <Link to="/family" onClick={logout}>Sign out here.</Link></div>
 			<div class="background-image"><img src="../bloom-background.svg"></img></div>
