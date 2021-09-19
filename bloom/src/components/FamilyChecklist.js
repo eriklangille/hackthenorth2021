@@ -14,7 +14,7 @@ const FamilyChecklist = () => {
 	return (
 		<div className="phone horizontally-centered">
 			<div className="family-nav">
-				<Link to="/family"><span className="back-button">Back</span></Link>
+				<Link to="/family"><span className="back-button"><img src="../arrow-left-circle.svg" width="50px" height="50px"/></span></Link>
 				<h1>Edit Checklist</h1>
 			</div>
 			<div className="checklist family-checklist">
