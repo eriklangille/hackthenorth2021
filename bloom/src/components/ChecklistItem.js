@@ -101,7 +101,7 @@ export const NewChecklistButton = ({ loginType = userId }) => {
                         </label>
                         <label>
                             <div>Date</div>
-                            <input type="datetime-local" min={Date.now().toString} step="360" />
+                            <input type="datetime-local" min={Date.now().toString} step="60" />
                         </label>
                         <input type="submit" value="Add item" className="primary-button" />
                     </form>
