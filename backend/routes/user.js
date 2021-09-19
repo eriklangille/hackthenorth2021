@@ -7,7 +7,7 @@ router.post("/", async (req, res) => {
 	const { user, firstname, lastname } = req.query
 
 	await (await pool()).request()
-		.input('id', sql.Int, user)
+		.input('id', sql.Int, parseInt(user))
 		.input('firstname', sql.VarChar(255), firstname)
 		.input('lastname', sql.VarChar(255), lastname)
 		.query(`
@@ -31,7 +31,7 @@ router.get("/", async (req, res) => {
 
 	const query = await (await pool())
 		.request()
-		.input('id', sql.Int, user)
+		.input('id', sql.Int, parseInt(user))
 		.query(`
 		SELECT *
 		from users

@@ -3,15 +3,17 @@ import FamilyLogin from './components/FamilyLogin';
 import { Route, BrowserRouter, Switch, Link } from 'react-router-dom';
 import Home from './patient/page/home';
 import FamilyTree from './patient/page/familyTree';
+import FamilyHome from './components/FamilyHome'
 import { backendEndpoint } from './static';
 import SettingPage from './patient/page/setting';
 import Photo from './patient/page/photo';
+import { userId } from './Utils/ids';
 
 function App() {
-  const user = localStorage.getItem("myid")
+  const user = localStorage.getItem(userId)
   if (!user) {
     const newUserId = parseInt(Math.random() * 2000000000)
-    localStorage.setItem("myid", newUserId)
+    localStorage.setItem(userId, newUserId)
 
     const url = new URL(backendEndpoint + "user?user=" + newUserId)
 
@@ -22,11 +24,10 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <Link to="/setting">Settings</Link> */}
       <Switch>
         <Route path="/family">
           <FamilyLogin>
-            Hello World
+            <FamilyHome />
           </FamilyLogin>
         </Route>
         <Route path="/tree">
