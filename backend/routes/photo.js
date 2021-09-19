@@ -9,7 +9,7 @@ const mime = require('mime-types')
 const fs = require('fs');
 const { pool } = require("../sql/sql");
 
-router.post("/user", upload.single('file'), async (req, res, next) => {
+router.post("/user/:user", upload.single('file'), async (req, res, next) => {
   const { user } = req.params;
 
   const callBack = async (err, data) => {
@@ -33,18 +33,17 @@ router.post("/user", upload.single('file'), async (req, res, next) => {
 
 // @route GET /user?user=
 // @desc Retrieve all photos for this user
-router.get("/user", async (req, res) => {
+router.get("/user/:user", async (req, res) => {
   const { user } = req.params;
-  await sql.connect(config).then(pool => {
-    return pool.request()
-      .input('userId', sql.Int, parseInt(id))
-      .query(`select * from photo 
+  const rawResponse = await (await pool())
+    .request()
+    .input('userId', sql.Int, parseInt(user))
+    .query(`select * from photo 
         where userId = @userId
         order by createDate desc
         `)
-  }).then(result => {
-    return res.json(result.recordset);
-  })
+
+  res.json(rawResponse.recordset)
 });
 
 // @route GET /photo/:id

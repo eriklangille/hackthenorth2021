@@ -5,10 +5,12 @@ import { Modal } from '../../components/Modal';
 import { UploadPhotoForm } from '../../components/UploadPhotoForm';
 import { backendEndpoint } from '../../static';
 import { userId } from '../../Utils/ids';
+import { getPhotoUrls } from '../../Utils/photo';
 import "./home.scss"
 
 function Home() {
     const history = useHistory()
+    const photoUrls = getPhotoUrls(userId)
 
     const [modalVisible, setModalVisible] = useState(false)
 
@@ -45,7 +47,7 @@ function Home() {
             <Modal isVisible={modalVisible} setVisible={setModalVisible}>
                 <div className="picture-upload-modal">
                     <UploadPhotoForm
-                        destinationUrl={`${backendEndpoint}photo/user?user=${user}`}
+                        destinationUrl={`${backendEndpoint}photo/user/${user}`}
                     />
                 </div>
             </Modal>
