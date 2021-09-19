@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './familyTree.scss';
 
 const familyTreeData = {
@@ -77,39 +78,25 @@ const familyTreeData = {
 export default function FamilyTree(props) {
     return (
         <div className="family-tree-page">
+            <Link to="/"><button>Back to Home page</button></Link>
             <div className="family-flex">
-                {familyTreeData.parents.map(parentNode => (
+                {familyTreeData.parents.map(node => (
                     <div>
-                        <PhotoIcon node={parentNode} />
-                        <p>{parentNode.name}</p>
+                        <UserBlock node={node} />
                     </div>
                 ))}
             </div>
             <div>
-                <div className="user-data">
-                    <div>
-                        <PhotoIcon node={familyTreeData} />
-                        <p>{familyTreeData.name}</p>
-                    </div>
-                </div>
+                <UserBlock node={familyTreeData} />
                 <div className="family-flex">
                     {familyTreeData.children.map(node => (
                         <div className="node">
-                            <div className="user-data">
-                                <div>
-                                    <PhotoIcon node={node} />
-                                    <p>{node.name}</p>
-                                </div>
-                            </div>
+                            <UserBlock node={node} />
+
                             <div className="family-flex">
                                 {node.children.map(node => (
                                     <div>
-                                        <div className="user-data">
-                                            <div>
-                                                <PhotoIcon node={node} />
-                                                <div>{node.name}{node.altName ? " & " + node.altName : null}</div>
-                                            </div>
-                                        </div>
+                                        <UserBlock node={node} />
                                     </div>
                                 ))}
                             </div>
@@ -120,6 +107,16 @@ export default function FamilyTree(props) {
         </div>
     );
 }
+
+const UserBlock = ({ node }) => (
+    <div className="user-data">
+        <div>
+            <PhotoIcon node={node} />
+            <div>{node.name}{node.altName ? " & " + node.altName : null}</div>
+            <div>{node.mainRelationship}{node.altRelationship ? " & " + node.altRelationship : null}</div>
+        </div>
+    </div>
+)
 
 const PhotoIcon = ({ node }) => (
     <div className="photo-icon">

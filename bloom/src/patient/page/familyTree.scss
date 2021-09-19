@@ -9,16 +9,20 @@
 		display: flex;
 		justify-content: center;
 	}
+}
 
+.user-data {
+	margin-bottom: 20px;
+
+	padding: 0px 20px;
+	display: flex;
+	justify-content: center;
+	align-content: center;
 	div {
-		.user-data {
-			padding: 0px 20px;
-			display: flex;
-			justify-content: center;
-			align-content: center;
-			div {
-				text-align: center;
-			}
+		text-align: center;
+		&:nth-child(3) {
+			opacity: 0.8;
+			font-size: 11;
 		}
 	}
 }
