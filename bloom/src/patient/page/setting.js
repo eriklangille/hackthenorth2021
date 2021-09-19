@@ -1,12 +1,31 @@
+import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import { backendEndpoint } from "../../static";
+
 export default function SettingPage() {
+	const [state, setState] = useState(null)
+	const history = useHistory();
+
 	const user = localStorage.getItem("id")
 
-	return (
+	const url = new URL(backendEndpoint + "user")
+	url.search = new URLSearchParams({ user }).toString();
+
+	useEffect(async () => {
+		const query = await fetch(url)
+		const data = await query.json()
+		setState({
+			first: data.FirstName,
+			last: data.LastName
+		})
+	})
+
+	return !state ? null : (
 		<div>
 			<form onSubmit={async (e) => {
 				e.preventDefault()
 
-				const url = new URL(backendEndpoint + "family")
+				const url = new URL(backendEndpoint + "user")
 
 				url.search = new URLSearchParams([
 					['user', user],
@@ -14,18 +33,23 @@ export default function SettingPage() {
 						r.name,
 						r.value
 					])]).toString();
-				const res = await fetch(url)
-				const json = await res.json()
+				await fetch(url, {
+					method: 'post'
+				})
+
+				history.push("/")
 			}}>
 				<label>
-					Phone Number (with area code):
-					<input type="text" name="phone" />
+					First Name
+					<input type="text" name="firstname" placeholder={state.first} />
 				</label>
 				<label>
-					Password:
-					<input type="password" name="password" />
+					Last Name
+					<input type="text" name="lastname" placeholder={state.last} />
 				</label>
 
 				<input type="submit" value="Submit" />
 			</form>
 		</div>
+	)
+}
