@@ -26,8 +26,6 @@ body {
 }
 
 .nav-button {
-    margin-right: 20px;
-
     cursor: pointer;
 
     &:last-child {
@@ -40,6 +38,15 @@ body {
     background-color: $secondary;
 
     text-align: center;
+}
+
+#nav-family {
+    font-weight: 600;
+    color: #4F4F4F;
+
+    div {
+        margin-bottom: 4px;
+    }
 }
 
 .checklist {
@@ -129,7 +136,7 @@ body {
 
 .home__photo_gallery {
   cursor: pointer;
-  margin: 0;
+  margin: 0 10px;
   height: 120px;
   display: flex;
   flex-wrap: wrap;

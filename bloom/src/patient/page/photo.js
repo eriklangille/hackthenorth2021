@@ -6,6 +6,16 @@ import { userId } from '../../Utils/ids';
 import { getPhotoUrls } from '../../Utils/photo';
 import { useHistory } from 'react-router-dom';
 
+const messages = [
+  {Text: "Hi mom! Thinking of you. Love you always ❤", Author: "From your son Michael"},
+  {Text: "Hey grandma. Hope you're doing well.", Author: "From your grandson Scott"},
+  {Text: "Hi Mary. I hope this image makes your day :)", Author: "From your sister Beth"},
+  {Text: "This was a fun time! Looking forward to seeing you soon", Author: "From your daughter-in-law Stephanie"},
+  {Text: "Here's my daily photo for you. Wish you well", Author: "From your granddaughter Charlie"},
+  {Text: "Another fun day!", Author: "From your niece Amy"},
+  {Text: "This picture brought a smile to my face", Author: "From your daughter Lucy"},
+]
+
 const newPhoto = (photo, text, author, date) => {
   return { Key: Math.random(0, 100000), Photo: photo, Text: text, Author: author, Date: date }
 }
@@ -14,9 +24,9 @@ const defPhoto = (text = "Mom", image = "./photo1.jpg", date = "2021-09-19T07:31
   let useimage = image || "./photo1.jpg"
   let options = { year: 'numeric', month: 'short', day: 'numeric' };
   let infodate = new Date(date || "2021-09-12T07:31:26.990Z");
-
+  let msg = messages[Math.floor(Math.random() * (messages.length-1))]
   let stringDate = infodate.toLocaleDateString("en-US", options);
-  return newPhoto(useimage, `Hi ${text}! Beautiful evening. Love you always ❤`, "From your son Michael", stringDate)
+  return newPhoto(useimage, msg.Text, msg.Author, stringDate)
 }
 
 let firstLoad = false
@@ -82,7 +92,6 @@ const Photo = () => {
     async function fetchData() {
       let photoData = await getPhotoUrls(userId)
       setPhotoData(photoData)
-      console.log(`DATA: ${photoData}`)
       console.table(photoData)
       setPhotos([defPhoto("Mom", photoData[0]?.urlString), defPhoto("Mom", photoData[1]?.urlString), defPhoto("Mom", photoData[2]?.urlString), defPhoto("Mother", photoData[3]?.urlString), defPhoto("Mother", photoData[4]?.urlString)])
     }
