@@ -14,3 +14,11 @@ exports.uploadBlob = async (content, contentType = "txt") => {
 	const url = containerClient.url + "/" + blobName
 	return url
 }
+
+exports.listBlob = async () => {
+	const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_BLOB_CONTAINER_NAME);
+  for await (const blob of containerClient.listBlobsFlat())
+  {
+    console.log(`Blob ${blob.name} ${blob.properties.contentType}`)
+  }
+}
