@@ -6,6 +6,15 @@
   justify-content: center;
 }
 
+.photo__backbutton {
+	border:none;
+	position: fixed;
+  background-color: rgba(0, 0, 0, 0);
+  top: 0;
+  left: 0;
+	margin: 10px;
+	cursor: pointer;
+}
 
 .Photos-enter-active {
   transition: all 500ms ease-in-out;

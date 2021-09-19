@@ -4,6 +4,7 @@ import PhotoItem from '../../components/photoItem';
 import './photo.scss'
 import { userId } from '../../Utils/ids';
 import { getPhotoUrls } from '../../Utils/photo';
+import { useHistory } from 'react-router-dom';
 
 const newPhoto = (photo, text, author, date) => {
   return {Key: Math.random(0, 100000), Photo: photo, Text: text, Author: author, Date: date}
@@ -21,6 +22,7 @@ const defPhoto = (text="Mom", image="./photo1.jpg", date = "2021-09-19T07:31:26.
 let firstLoad = false
 
 const Photo = () => {
+  const history = useHistory()
   const [photos, setPhotos] = useState([])
   const [photoData, setPhotoData] = useState([])
   const [photoNumbers, setPhotoNumbers] = useState([0, 4])
@@ -92,6 +94,10 @@ const Photo = () => {
   }, [])
 
   return (
+    <div>
+    <button onClick={() => history.push("/")} className="photo__backbutton">
+      <img src="../arrow-left-circle.svg" width="50px" height="50px"/>
+    </button>
     <div className="photoAlbum"
     onMouseDown={mouseDownEvent => handleMouseDown(mouseDownEvent)}
     onMouseMove={mouseMoveEvent => handleMouseMove(mouseMoveEvent)}
@@ -108,6 +114,7 @@ const Photo = () => {
       )}
       </TransitionGroup>
       {/* <PhotoItem Photo="./photo1.jpg" Text="Hi mom! Beautiful evening. Love you always ❤" Date="Aug 29, 2021" Author="From your son Michael" /> */}
+    </div>
     </div>
   );
 }

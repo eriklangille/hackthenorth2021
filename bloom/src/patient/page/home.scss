@@ -34,7 +34,6 @@ body {
         margin-right: 0px;
     }
 
-    width: 25%;
     height: 60px;
     padding: 30px;
     border-radius: 30px;
@@ -120,9 +119,16 @@ body {
 	background-color: white;
 }
 
-.nav {
-	img {
-		object-fit: cover;
-		width: 25%;
-	}
+.home__photo {
+  border-radius: 30px;
+  object-fit: cover;
+  margin: 0 10px;
+  height: 120px;
+}
+
+.home__photo_gallery {
+  cursor: pointer;
+  margin: 0;
+  height: 120px;
+  width: 400px;
 }
