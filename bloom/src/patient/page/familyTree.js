@@ -1,4 +1,4 @@
-import './familyTree.css';
+import './familyTree.scss';
 
 const familyTreeData = {
     name: "Mary",
@@ -44,6 +44,7 @@ const familyTreeData = {
                 {
                     name: "Tom",
                     mainRelationship: "grandson",
+                    mainImageURL: "https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445__480.jpg",
                     altName: "Michelle",
                     altRelationship: "granddaughterInLaw",
                     altImageURL: "https://cdn.pixabay.com/photo/2017/04/06/19/34/girl-2209147__480.jpg"
@@ -75,28 +76,60 @@ const familyTreeData = {
 
 export default function FamilyTree(props) {
     return (
-        <div className="page">
+        <div className="family-tree-page">
             <div className="family-flex">
                 {familyTreeData.parents.map(parentNode => (
-                    <p>{parentNode.name}</p>))}
-            </div>
-            <div className="family-flex">
-                <div className="family-card">
-                    <div className="profile-pic" style={{ backgroundImage: `url(${familyTreeData.mainImageURL})` }} />
-                    {familyTreeData.name}
-                </div>
-            </div>
-            <div className="family-flex">
-                {familyTreeData.children.map(node => (
-                    <div className="node">
-                        <p>{node.name}</p>
-                        <div className="family-flex">
-                            {node.children.map(childrenNode => (
-                                <div className="node-children"><p>{childrenNode.name}</p></div>))}
-                        </div>
+                    <div>
+                        <PhotoIcon node={parentNode} />
+                        <p>{parentNode.name}</p>
                     </div>
                 ))}
+            </div>
+            <div>
+                <div className="user-data">
+                    <div>
+                        <PhotoIcon node={familyTreeData} />
+                        <p>{familyTreeData.name}</p>
+                    </div>
+                </div>
+                <div className="family-flex">
+                    {familyTreeData.children.map(node => (
+                        <div className="node">
+                            <div className="user-data">
+                                <div>
+                                    <PhotoIcon node={node} />
+                                    <p>{node.name}</p>
+                                </div>
+                            </div>
+                            <div className="family-flex">
+                                {node.children.map(node => (
+                                    <div>
+                                        <div className="user-data">
+                                            <div>
+                                                <PhotoIcon node={node} />
+                                                <div>{node.name}{node.altName ? " & " + node.altName : null}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
 }
+
+const PhotoIcon = ({ node }) => (
+    <div className="photo-icon">
+        <div>
+            <img src={node.mainImageURL} alt={node.name} />
+        </div>
+        {node.altImageURL ?
+            <div>
+                <img src={node.altImageURL} alt={node.altName} />
+            </div>
+            : null}
+    </div>
+)
