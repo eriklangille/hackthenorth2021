@@ -35,7 +35,10 @@ function Home() {
             <div id="date">{dateText}</div>
             <div id="title">{greeting}Mary</div>
             <div className="nav">
-                <div onClick={() => history.push("/tree")} className="nav-button" id="nav-family">Family tree</div>
+                <div onClick={() => history.push("/tree")} className="nav-button" id="nav-family">
+                    <div><img src="../icons/plant.svg" width="38" height="38"></img></div>
+                    Family tree
+                </div>
                 <div onClick={() => history.push("/photo")} className="home__photo_gallery">
                     {photoUrls[0] ? <img className="home__photo" src={photoUrls[0].urlString} /> : null}
                     {photoUrls[1] ? <img className="home__photo" src={photoUrls[1].urlString} /> : null}

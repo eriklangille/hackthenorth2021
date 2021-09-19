@@ -40,6 +40,15 @@ body {
     text-align: center;
 }
 
+#nav-family {
+    font-weight: 600;
+    color: #4F4F4F;
+
+    div {
+        margin-bottom: 4px;
+    }
+}
+
 .checklist {
     display: flex;
     flex-direction: column;
