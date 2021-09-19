@@ -70,9 +70,9 @@ export const NewChecklistButton = ({ loginType = userId }) => {
     const history = useHistory()
 
     return (
-        <div className={"checklist-item"} onClick={() => { setModalVisible(true) }}>
+        <div className={"checklist-item add-new"} onClick={() => { setModalVisible(true) }}>
             <div className="checklist-item-status"><img src="../icons/checkmark.svg" width="32" height="32"></img></div>
-            <div className="checklist-item-name">Add a new reminder</div>
+            <div className="checklist-item-name">+ Add a new reminder</div>
             <Modal isVisible={modalVisible} setVisible={setModalVisible}>
                 <div className="new-checklist-prompt">
                     <form onSubmit={async e => {

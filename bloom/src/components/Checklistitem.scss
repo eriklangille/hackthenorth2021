@@ -1,3 +1,5 @@
+$primary: #076CAF;
+
 .new-checklist-prompt {
 	width: 40vw;
 	height: 40vh;
@@ -22,4 +24,16 @@
 			justify-content: space-between;
 		}
 	}
+}
+
+.add-new {
+	border: 0px !important;
+	padding: 3px !important;
+	margin-top: 12px;
+
+	.checklist-item-name {
+		font-weight: 500;
+		color: $primary;
+	}
+
 }
