@@ -1,0 +1,169 @@
+$primary: #076CAF;
+$primary-2: #085181;
+$secondary: #FFEDDA;
+$text-light: #FFFFFF;
+$text-dark: #000000;
+
+body {
+    overflow-y: hidden;
+}
+
+.phone {
+    width: 100vw;
+    height: 100vh;
+
+    &:not(.vertically-centered) {
+        margin-top: 50px;
+    }
+}
+
+.vertically-centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.horizontally-centered {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.selection-screen {
+    .primary-button {
+        margin-bottom: 8px;
+    }
+}
+
+.logo {
+    margin-bottom: 40px;
+}
+
+.primary-button {
+    background-color: $primary;
+    cursor: pointer;
+
+    min-width: 190px;
+    border: 3px solid;
+    border-color: $primary;
+    border-radius: 50px;
+    padding: 7px 20px;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    color: $text-light;
+}
+
+.secondary-button {
+    background: none;
+    cursor: pointer;
+
+    min-width: 190px;
+    border: 3px solid;
+    border-color: $primary;
+    border-radius: 50px;
+    padding: 7px 20px;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    color: $primary;
+}
+
+form {
+    width: fit-content;
+    text-align: left;
+
+    h1 {
+        text-align: center;
+        font-size: 1.2em;
+        margin-top: 0;
+        margin-bottom: 38px;
+    }
+
+    .logo {
+        text-align: center;
+    }
+}
+
+.input-form {
+    margin-bottom: 14px;
+    width: fit-content;
+    text-align: left;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    label {
+        font-size: 0.9em;
+        font-weight: 500;
+
+        input {
+            min-width: 200px;
+            font-weight: normal;
+
+            padding: 4px 8px;
+            border: 2px solid $primary;
+            border-radius: 50px;
+
+            outline: none;
+
+            &:focus {
+                // border-color: $primary-2;
+                box-shadow: 3px 3px 6px #1f0c7215;
+            }
+        }
+    }
+}
+
+.input-form-label {
+    margin-bottom: 2px;
+}
+
+.submit-button {
+    background-color: $primary;
+    cursor: pointer;
+
+    text-align: left;
+    margin-top: 14px;
+    min-width: 50px;
+    border: 3px solid;
+    border-color: $primary;
+    border-radius: 50px;
+    padding: 4px 12px;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    color: $text-light;
+}
+
+.footer-button {
+    position: absolute;
+    bottom: 26px;
+
+    text-align: center;
+    left: auto;
+    right: auto;
+
+    color: $primary;
+    font-size: 0.75em;
+
+    a {
+        font-weight: bold;
+        color: $primary;
+        text-decoration: none;
+    }
+}
+
+.background-image {
+    position: absolute;
+    z-index: -100;
+
+    bottom: 0;
+    left: 5%;
+    margin-bottom: -10px;
+
+    opacity: 70%;
+}

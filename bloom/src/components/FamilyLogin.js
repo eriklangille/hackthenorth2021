@@ -1,5 +1,7 @@
+import React from "react"
 import { Link, Route, BrowserRouter, Switch } from "react-router-dom"
 import { backendEndpoint } from "../static"
+import './FamilyLogin.scss'
 
 const FamilyLogin = ({ children }) => {
 	let userId = localStorage.getItem("id")
@@ -14,8 +16,14 @@ const FamilyLogin = ({ children }) => {
 					<Register />
 				</Route>
 				<Route path="/">
-					<Link to="/family/login">Login</Link>
-					<Link to="/family/register">Register</Link>
+					<div class="phone horizontally-centered vertically-centered">
+						<div class="logo"><img src='../bloom-logo.svg'></img></div>
+						<div class="selection-screen">
+							<div><Link to="/family/login"><input type="button" value="Create an account" class="primary-button"/></Link></div>
+							<div><Link to="/family/register"><input type="button" value="Sign in to my account" class="secondary-button"/></Link></div>
+						</div>
+						<div class="background-image"><img src="../bloom-background.svg"></img></div>
+					</div>
 				</Route>
 			</Switch>
 		</BrowserRouter>
@@ -23,7 +31,7 @@ const FamilyLogin = ({ children }) => {
 }
 
 const Login = () => {
-	return <div>
+	return <div class="phone horizontally-centered">
 		<form onSubmit={async (e) => {
 			e.preventDefault()
 
@@ -37,22 +45,32 @@ const Login = () => {
 			const json = await res.json()
 			localStorage.setItem("id", json.userId)
 		}}>
-			<label>
-				Phone Number (with area code):
-				<input type="text" name="phone" />
-			</label>
-			<label>
-				Password:
-				<input type="password" name="password" />
-			</label>
 
-			<input type="submit" value="Submit" />
+			<div class="logo"><img src='../bloom-logo.svg'></img></div>
+			<h1>Sign in</h1>
+			<div class="input-form">
+				<label>
+					<div class="input-form-label">Phone number</div>
+					<input type="text" name="phone" class="input-phonenumber" />
+				</label>
+			</div>
+			<div class="input-form">
+				<label>
+					<div class="input-form-label">Password</div>
+					<input type="password" name="password" class="input-password" />
+				</label>
+			</div>
+
+			<input type="submit" value="Log in →" class="submit-button" />
 		</form>
+
+		<div class="footer-button">Don't have an account? <Link to="/family/register">Register here.</Link></div>
+		<div class="background-image"><img src="../bloom-background.svg"></img></div>
 	</div>
 }
 
 const Register = () => {
-	return <div>
+	return <div class="phone horizontally-centered">
 		<form onSubmit={async (e) => {
 			e.preventDefault()
 
@@ -65,29 +83,44 @@ const Register = () => {
 				r.value
 			])).toString();
 		}}>
-			<label>
-				Phone Number (with area code):
-				<input type="text" name="phone" />
-			</label>
-			<label>
-				First Name
-				<input type="text" name="firstname" />
-			</label>
-			<label>
-				Last Name
-				<input type="text" name="lastname" />
-			</label>
-			<label>
-				Password:
-				<input type="password" name="password" />
-			</label>
-			<label>
-				Customer's id:
-				<input type="number" name="user" />
-			</label>
+			<div class="logo"><img src='../bloom-logo.svg'></img></div>
+			<h1>Create an account</h1>
+			<div class="input-form">
+				<label>
+					<div class="input-form-label">Relative's account id</div>
+					<input type="number" name="user" class="input-id" />
+				</label>
+			</div>
+			<div class="input-form">
+				<label>
+					<div class="input-form-label">Phone number</div>
+					<input type="text" name="phone" class="input-phonenumber" />
+				</label>
+			</div>
+			<div class="input-form">
+				<label>
+					<div class="input-form-label">First name</div>
+					<input type="text" name="firstname" class="input-firstname" />
+				</label>
+			</div>
+			<div class="input-form">
+				<label>
+					<div class="input-form-label">Last name</div>
+					<input type="text" name="lastname" class="input-lastname" />
+				</label>
+			</div>
+			<div class="input-form">
+				<label>
+					<div class="input-form-label">Password</div>
+					<input type="password" name="password" class="input-password" />
+				</label>
+			</div>
 
-			<input type="submit" value="Submit" />
+			<input type="submit" value="Register →" class="submit-button" />
 		</form>
+
+		<div class="footer-button">Already have an account? <Link to="/family/login">Sign in.</Link></div>
+		<div class="background-image"><img src="../bloom-background.svg"></img></div>
 	</div>
 }
 

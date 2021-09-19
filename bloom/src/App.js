@@ -21,7 +21,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Link to="/setting">Settings</Link>
+      {/* <Link to="/setting">Settings</Link> */}
       <Switch>
         <Route path="/family">
           <FamilyLogin>
