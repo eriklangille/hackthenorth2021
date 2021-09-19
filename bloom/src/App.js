@@ -49,7 +49,6 @@ function App() {
           <Home />
         </Route>
       </Switch>
-      <p className="userid">User ID: {user}</p>
     </BrowserRouter>
   );
 }

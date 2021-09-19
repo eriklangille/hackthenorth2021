@@ -36,8 +36,10 @@ function Home() {
             <div id="title">{greeting}Mary</div>
             <div className="nav">
                 <div onClick={() => history.push("/tree")} className="nav-button" id="nav-family">Family tree</div>
-                {photoUrls[0] ? <img src={photoUrls[0].urlString} /> : null}
-                {photoUrls[1] ? <img src={photoUrls[1].urlString} /> : null}
+                <div onClick={() => history.push("/photo")} className="home__photo_gallery">
+                  {photoUrls[0] ? <img className="home__photo" src={photoUrls[0].urlString} /> : null}
+                  {photoUrls[1] ? <img className="home__photo" src={photoUrls[1].urlString} /> : null}
+                </div>
                 <div onClick={() => setModalVisible(true)} className="nav-button" id="nav-p3"></div>
             </div>
             <div className="checklist">
@@ -46,7 +48,6 @@ function Home() {
                         data={r}
                     />
                 ))}
-                <NewChecklistButton />
             </div>
             <Modal isVisible={modalVisible} setVisible={setModalVisible}>
                 <div className="picture-upload-modal">
@@ -55,6 +56,7 @@ function Home() {
                     />
                 </div>
             </Modal>
+        <p className="userid">User ID: {user}</p>
         </div>
     );
 }
