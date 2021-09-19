@@ -24,7 +24,7 @@ export function UploadPhotoForm({ destinationUrl }) {
 					<div>{f.name}</div>
 				))}
 			</div>
-			<button className="primary-button" onClick={(e) => {
+			{acceptedFiles.length === 0 ? null : <button className="primary-button" onClick={(e) => {
 				e.stopPropagation()
 				acceptedFiles.forEach((f) => {
 					const formData = new FormData()
@@ -33,7 +33,7 @@ export function UploadPhotoForm({ destinationUrl }) {
 					)
 					axios.post(destinationUrl, formData)
 				})
-			}}>Upload</button>
+			}}>Upload</button>}
 		</div>
 	)
 }
