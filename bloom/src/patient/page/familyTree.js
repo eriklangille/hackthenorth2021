@@ -3,7 +3,7 @@ import './familyTree.scss';
 
 const familyTreeData = {
     name: "Mary",
-    mainRelationship: "me",
+    mainRelationship: "Me",
     mainImageURL: "https://cdn.pixabay.com/photo/2019/04/10/17/01/woman-4117523__480.jpg",
     altName: "Alexandro",
     altRelationship: "Husband",
@@ -29,7 +29,7 @@ const familyTreeData = {
             children: [
                 {
                     name: "Lizzie",
-                    mainRelationship: "Granddaugher",
+                    mainRelationship: "Granddaughter",
                     mainImageURL: "https://cdn.pixabay.com/photo/2014/10/06/17/30/child-476507__340.jpg"
                 }
             ]
@@ -43,12 +43,9 @@ const familyTreeData = {
             altImageURL: "https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907__340.jpg",
             children: [
                 {
-                    name: "Tom",
-                    mainRelationship: "Grandson",
-                    mainImageURL: "https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445__480.jpg",
-                    altName: "Michelle",
-                    altRelationship: "In Law",
-                    altImageURL: "https://cdn.pixabay.com/photo/2017/04/06/19/34/girl-2209147__480.jpg"
+                    name: "Michelle",
+                    mainRelationship: "Granddaughter",
+                    mainImageURL: "https://cdn.pixabay.com/photo/2017/04/06/19/34/girl-2209147__480.jpg",
                 }
             ]
         },
