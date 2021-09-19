@@ -16,7 +16,7 @@ const ChecklistItem = (props) => {
 
     return (
         <div className={"checklist-item" + addClass} onClick={() => { setState(!state) }}>
-            <div className="checklist-item-status"></div>
+            <div className="checklist-item-status"><img src="../icons/checkmark.svg" width="32" height="32"></img></div>
             <div className="checklist-item-name">{props.name}</div>
             <div className="checklist-item-date">{dateContext} {props.time}</div>
         </div>

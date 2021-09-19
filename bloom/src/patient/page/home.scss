@@ -99,7 +99,8 @@ body {
 
     img {
         display: none;
-    }
+		filter: invert(29%) sepia(99%) saturate(1054%) hue-rotate(178deg) brightness(92%) contrast(95%);
+	}
 }
 
 .checklist-item-name {
