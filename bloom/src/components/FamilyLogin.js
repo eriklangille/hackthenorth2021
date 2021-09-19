@@ -73,6 +73,7 @@ const Login = () => {
 const Register = () => {
 	return <div class="phone horizontally-centered">
 		<form onSubmit={async (e) => {
+			console.log("HELLO")
 			e.preventDefault()
 
 			localStorage.setItem(familyId, e.target[4].value)
@@ -83,6 +84,10 @@ const Register = () => {
 				r.name,
 				r.value
 			])).toString();
+
+			fetch(url, {
+				method: 'post'
+			})
 		}}>
 			<div class="logo"><img src='../bloom-logo.svg'></img></div>
 			<h1>Create an account</h1>
