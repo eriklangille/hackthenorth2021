@@ -112,8 +112,8 @@ const UserBlock = ({ node }) => (
     <div className="user-data">
         <div>
             <PhotoIcon node={node} />
-            <div>{node.name}{node.altName ? " & " + node.altName : null}</div>
-            <div>{node.mainRelationship}{node.altRelationship ? " & " + node.altRelationship : null}</div>
+            <div className="people-name">{node.name}{node.altName ? " & " + node.altName : null}</div>
+            <div className="people-detail">{node.mainRelationship}{node.altRelationship ? " & " + node.altRelationship : null}</div>
         </div>
     </div>
 )
