@@ -48,7 +48,6 @@ function Home() {
                         data={r}
                     />
                 ))}
-                <NewChecklistButton />
             </div>
             <Modal isVisible={modalVisible} setVisible={setModalVisible}>
                 <div className="picture-upload-modal">
@@ -57,6 +56,7 @@ function Home() {
                     />
                 </div>
             </Modal>
+        <p className="userid">User ID: {user}</p>
         </div>
     );
 }
