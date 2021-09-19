@@ -2,7 +2,7 @@ import React from "react"
 import { Link, Route, BrowserRouter, Switch } from "react-router-dom"
 import { backendEndpoint } from "../static"
 import { familyId } from "../Utils/ids"
-import './FamilyLogin.scss'
+import './Family.scss'
 
 const FamilyLogin = ({ children }) => {
 	let familyid = localStorage.getItem(familyId)
@@ -20,8 +20,8 @@ const FamilyLogin = ({ children }) => {
 					<div class="phone horizontally-centered vertically-centered">
 						<div class="logo"><img src='../bloom-logo.svg'></img></div>
 						<div class="selection-screen">
-							<div><Link to="/family/login"><input type="button" value="Create an account" class="primary-button" /></Link></div>
-							<div><Link to="/family/register"><input type="button" value="Sign in to my account" class="secondary-button" /></Link></div>
+							<div><Link to="/family/register"><input type="button" value="Create an account" class="primary-button" /></Link></div>
+							<div><Link to="/family/login"><input type="button" value="Sign in to my account" class="secondary-button" /></Link></div>
 						</div>
 						<div class="background-image"><img src="../bloom-background.svg"></img></div>
 					</div>
@@ -62,7 +62,7 @@ const Login = () => {
 				</label>
 			</div>
 
-			<input type="submit" value="Log in →" class="submit-button" />
+			<Link to="/family"><input type="submit" value="Log in →" class="submit-button" /></Link>
 		</form>
 
 		<div class="footer-button">Don't have an account? <Link to="/family/register">Register here.</Link></div>
@@ -117,7 +117,7 @@ const Register = () => {
 				</label>
 			</div>
 
-			<input type="submit" value="Register →" class="submit-button" />
+			<Link to="/family"><input type="submit" value="Register →" class="submit-button" /></Link>
 		</form>
 
 		<div class="footer-button">Already have an account? <Link to="/family/login">Sign in.</Link></div>

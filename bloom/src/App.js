@@ -3,6 +3,7 @@ import FamilyLogin from './components/FamilyLogin';
 import { Route, BrowserRouter, Switch, Link } from 'react-router-dom';
 import Home from './patient/page/home';
 import FamilyTree from './patient/page/familyTree';
+import FamilyHome from './components/FamilyHome'
 import { backendEndpoint } from './static';
 import SettingPage from './patient/page/setting';
 import { userId } from './Utils/ids';
@@ -25,7 +26,7 @@ function App() {
       <Switch>
         <Route path="/family">
           <FamilyLogin>
-            Hello World
+            <FamilyHome />
           </FamilyLogin>
         </Route>
         <Route path="/tree">
