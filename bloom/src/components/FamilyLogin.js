@@ -45,6 +45,8 @@ const Login = () => {
 			const res = await fetch(url)
 			const json = await res.json()
 			localStorage.setItem(familyId, json.userId)
+
+			window.location.reload(false); // page reload
 		}}>
 
 			<div class="logo"><img src='../bloom-logo.svg'></img></div>
@@ -62,7 +64,7 @@ const Login = () => {
 				</label>
 			</div>
 
-			<Link to="/family"><input type="submit" value="Log in →" class="submit-button" /></Link>
+			<input type="submit" value="Log in →" class="submit-button"/>
 		</form>
 
 		<div class="footer-button">Don't have an account? <Link to="/family/register">Register here.</Link></div>
@@ -88,6 +90,8 @@ const Register = () => {
 			fetch(url, {
 				method: 'post'
 			})
+			
+			window.location.reload(false); // page reload
 		}}>
 			<div class="logo"><img src='../bloom-logo.svg'></img></div>
 			<h1>Create an account</h1>
@@ -122,7 +126,7 @@ const Register = () => {
 				</label>
 			</div>
 
-			<Link to="/family"><input type="submit" value="Register →" class="submit-button" /></Link>
+			<input type="submit" value="Register →" class="submit-button" />
 		</form>
 
 		<div class="footer-button">Already have an account? <Link to="/family/login">Sign in.</Link></div>
