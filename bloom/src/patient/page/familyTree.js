@@ -78,7 +78,9 @@ const familyTreeData = {
 export default function FamilyTree(props) {
     return (
         <div className="family-tree-page">
-            <Link to="/"><button>Back to Home page</button></Link>
+            <Link to="/"><button className="backbutton">
+                <img src="../arrow-left-circle.svg" width="50px" height="50px"/>
+            </button></Link>
             <div className="family-flex">
                 {familyTreeData.parents.map(node => (
                     <div>

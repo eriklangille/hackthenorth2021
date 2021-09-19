@@ -26,15 +26,15 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path="/family/checklist">
+          <FamilyLogin>
+            <FamilyChecklist />
+          </FamilyLogin>
+        </Route>
         <Route path="/family">
           <FamilyLogin>
             <FamilyHome />
           </FamilyLogin>
-        </Route>
-        <Route path="/family/checklist">
-          {/* <FamilyLogin> */}
-            <FamilyChecklist />
-          {/* </FamilyLogin> */}
         </Route>
         <Route path="/tree">
           <FamilyTree />
@@ -49,7 +49,7 @@ function App() {
           <Home />
         </Route>
       </Switch>
-      <p class="userid">User ID: {user}</p>
+      <p className="userid">User ID: {user}</p>
     </BrowserRouter>
   );
 }
