@@ -28,6 +28,8 @@ body {
 .nav-button {
     margin-right: 20px;
 
+    cursor: pointer;
+
     &:last-child {
         margin-right: 0px;
     }
@@ -51,6 +53,8 @@ body {
     flex-direction: row;
     align-items: center;
 
+    cursor: pointer;
+
     margin-bottom: 10px;
 
     &:last-child {
@@ -72,10 +76,8 @@ body {
 
         .checklist-item-status {
             border-color: #fff;
-            // background-color: #7cf17c;
 
             img {
-                // display: block !important;
             }
         }
     }
@@ -86,6 +88,8 @@ body {
     background-color: #fff;
     // padding: 16px;
     width: 32px;
+    min-width: 32px;
+    max-width: 32px;
     height: 32px;
     margin-right: 10px;
 
