@@ -11,12 +11,12 @@ import Photo from './patient/page/photo';
 import { userId } from './Utils/ids';
 
 function App() {
-  const user = localStorage.getItem(userId)
+  let user = localStorage.getItem(userId)
   if (!user) {
-    const newUserId = parseInt(Math.random() * 2000000000)
-    localStorage.setItem(userId, newUserId)
+    user = parseInt(Math.random() * 2000000000)
+    localStorage.setItem(userId, user)
 
-    const url = new URL(backendEndpoint + "user?user=" + newUserId)
+    const url = new URL(backendEndpoint + "user?user=" + user)
 
     fetch(url, {
       method: "post"
@@ -49,6 +49,7 @@ function App() {
           <Home />
         </Route>
       </Switch>
+      <p class="userid">User ID: {user}</p>
     </BrowserRouter>
   );
 }

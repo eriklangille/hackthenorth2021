@@ -1,0 +1,123 @@
+$primary: #076CAF;
+$secondary: #FFEDDA;
+$text-light: #FFFFFF;
+$text-dark: #000000;
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.wrapper {
+    margin: 60px;
+}
+
+#title {
+    margin-top: 4px;
+    font-size: 3em;
+}
+
+.nav {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-button {
+    margin-right: 20px;
+
+    cursor: pointer;
+
+    &:last-child {
+        margin-right: 0px;
+    }
+
+    width: 25%;
+    height: 60px;
+    padding: 30px;
+    border-radius: 30px;
+    background-color: $secondary;
+
+    text-align: center;
+}
+
+.checklist {
+    display: flex;
+    flex-direction: column;
+}
+
+.checklist-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    cursor: pointer;
+
+    margin-bottom: 10px;
+
+    &:last-child {
+        margin-bottom: 0px;
+    }
+
+    height: 20px;
+    padding: 12px 16px 12px 4px;
+    border-radius: 30px;
+
+    border: 3px solid;
+    border-color: $primary;
+
+    color: $text-dark;
+
+    &.checked {
+        background-color: $primary;
+        color: $text-light;
+
+        .checklist-item-status {
+            border-color: #fff;
+
+            img {
+            }
+        }
+    }
+}
+
+.checklist-item-status {
+    border-radius: 100%;
+    background-color: #fff;
+    // padding: 16px;
+    width: 32px;
+    min-width: 32px;
+    max-width: 32px;
+    height: 32px;
+    margin-right: 10px;
+
+    border: 3px solid;
+    border-color: $primary;
+
+    img {
+        width: 0px;
+        height: 0px;
+    }
+}
+
+.checklist-item-name {
+    font-size: 1.15em;
+    font-weight: 500;
+}
+
+.checklist-item-date {
+    margin-left: auto;
+
+    font-size: 0.95em;
+}
+
+.userid {
+    margin:0;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 20px;
+    color: #848484;
+}
