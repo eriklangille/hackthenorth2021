@@ -5,6 +5,7 @@ import Home from './patient/page/home';
 import FamilyTree from './patient/page/familyTree';
 import { backendEndpoint } from './static';
 import SettingPage from './patient/page/setting';
+import Photo from './patient/page/photo';
 
 function App() {
   const user = localStorage.getItem("myid")
@@ -21,7 +22,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Link to="/setting">Settings</Link>
+      {/* <Link to="/setting">Settings</Link> */}
       <Switch>
         <Route path="/family">
           <FamilyLogin>
@@ -30,6 +31,9 @@ function App() {
         </Route>
         <Route path="/tree">
           <FamilyTree />
+        </Route>
+        <Route path="/photo">
+          <Photo />
         </Route>
         <Route path="/setting">
           <SettingPage />

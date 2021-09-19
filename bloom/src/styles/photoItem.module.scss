@@ -1,0 +1,49 @@
+.PhotoItem {
+  // 076CAF
+  background-color: rgba(7,108,175,0.1);
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 27px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  margin: 0 15px;
+  // overflow: hidden;
+  width: 0;
+  user-select: none;
+}
+
+.TextBlock {
+  margin: -25px 0 0 0;
+  width: 715px;
+}
+
+.Photo {
+  width: 715px;
+  box-shadow: 0px 7px 16px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.Message {
+  font-size: 40px;
+  margin: 0;
+}
+
+.Author {
+  font-size: 40px;
+  margin: 15px 0 0 0;
+  font-weight: 400;
+}
+
+.Date {
+  position: relative;
+  right: 0;
+  top: -62px;
+  color: white;
+  font-size: 36px;
+  text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.6);
+}
+
+.DateText {
+  margin: 0;
+  padding: 0 20px 0 0;
+  text-align: right;
+}
