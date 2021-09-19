@@ -1,7 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-import '../App.scss';
-import '../styles/checklist-item.scss';
 
 const ChecklistItem = (props) => {
     let [state, setState] = useState(props.status)
