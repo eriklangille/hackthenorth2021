@@ -52,7 +52,7 @@ const Login = () => {
 			<div class="input-form">
 				<label>
 					<div class="input-form-label">Phone number</div>
-					<input type="text" name="phone" class="input-phonenumber" />
+					<input type="text" name="phone" placeholder="(000) 000 0000" class="input-phonenumber" />
 				</label>
 			</div>
 			<div class="input-form">
@@ -89,25 +89,25 @@ const Register = () => {
 			<div class="input-form">
 				<label>
 					<div class="input-form-label">Relative's account id</div>
-					<input type="number" name="user" class="input-id" />
+					<input type="number" name="user" placeholder="123456789" class="input-id" />
 				</label>
 			</div>
 			<div class="input-form">
 				<label>
 					<div class="input-form-label">Phone number</div>
-					<input type="text" name="phone" class="input-phonenumber" />
+					<input type="text" name="phone" placeholder="(000) 000 0000" class="input-phonenumber" />
 				</label>
 			</div>
 			<div class="input-form">
 				<label>
 					<div class="input-form-label">First name</div>
-					<input type="text" name="firstname" class="input-firstname" />
+					<input type="text" name="firstname" placeholder="Jane" class="input-firstname" />
 				</label>
 			</div>
 			<div class="input-form">
 				<label>
 					<div class="input-form-label">Last name</div>
-					<input type="text" name="lastname" class="input-lastname" />
+					<input type="text" name="lastname" placeholder="Doe" class="input-lastname" />
 				</label>
 			</div>
 			<div class="input-form">
