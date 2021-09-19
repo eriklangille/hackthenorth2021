@@ -8,17 +8,22 @@ export default function SettingPage() {
 
 	const user = localStorage.getItem("id")
 
-	const url = new URL(backendEndpoint + "user")
-	url.search = new URLSearchParams({ user }).toString();
+	useEffect(() => {
+		const fetchData = async () => {
 
-	useEffect(async () => {
-		const query = await fetch(url)
-		const data = await query.json()
-		setState({
-			first: data.FirstName,
-			last: data.LastName
-		})
-	})
+			const user = localStorage.getItem("id")
+
+			const url = new URL(backendEndpoint + "user")
+			url.search = new URLSearchParams({ user }).toString();
+			const query = await fetch(url)
+			const data = await query.json()
+			setState({
+				first: data.FirstName,
+				last: data.LastName
+			})
+		}
+		fetchData()
+	}, [setState])
 
 	return !state ? null : (
 		<div>

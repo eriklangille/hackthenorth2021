@@ -2,24 +2,28 @@ import { Link, Route, BrowserRouter, Switch } from "react-router-dom"
 import { backendEndpoint } from "../static"
 
 const FamilyLogin = ({ children }) => {
-	let userId = localStorage.getItem("id")
+	let familyid = localStorage.getItem("familyid")
 
-	return userId ? children : (
-		<BrowserRouter>
-			<Switch>
-				<Route path="/family/login">
-					<Login />
-				</Route>
-				<Route path="/family/register">
-					<Register />
-				</Route>
-				<Route path="/">
-					<Link to="/family/login">Login</Link>
-					<Link to="/family/register">Register</Link>
-				</Route>
-			</Switch>
-		</BrowserRouter>
-	)
+	return familyid ?
+		<div>
+			<button onClick={() => localStorage.clear()}>Logout</button>
+			{children}
+		</div> : (
+			<BrowserRouter>
+				<Switch>
+					<Route path="/family/login">
+						<Login />
+					</Route>
+					<Route path="/family/register">
+						<Register />
+					</Route>
+					<Route path="/">
+						<Link to="/family/login">Login</Link>
+						<Link to="/family/register">Register</Link>
+					</Route>
+				</Switch>
+			</BrowserRouter>
+		)
 }
 
 const Login = () => {
@@ -35,7 +39,7 @@ const Login = () => {
 			])).toString();
 			const res = await fetch(url)
 			const json = await res.json()
-			localStorage.setItem("id", json.userId)
+			localStorage.setItem("familyid", json.userId)
 		}}>
 			<label>
 				Phone Number (with area code):
@@ -56,7 +60,7 @@ const Register = () => {
 		<form onSubmit={async (e) => {
 			e.preventDefault()
 
-			localStorage.setItem("id", e.target[4].value)
+			localStorage.setItem("familyid", e.target[4].value)
 
 			const url = new URL(backendEndpoint + "family")
 
