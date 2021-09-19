@@ -2,9 +2,11 @@ import React, { useCallback, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 export function UploadPhotoForm({ destinationUrl }) {
 	const [acceptedFiles, setAcceptedFiles] = useState([])
+	const history = useHistory()
 
 	const onDrop = useCallback(async acceptedFiles => {
 		setAcceptedFiles(acceptedFiles)
@@ -24,15 +26,16 @@ export function UploadPhotoForm({ destinationUrl }) {
 					<div>{f.name}</div>
 				))}
 			</div>
-			{acceptedFiles.length === 0 ? null : <button className="primary-button" onClick={(e) => {
+			{acceptedFiles.length === 0 ? null : <button className="primary-button" onClick={async (e) => {
 				e.stopPropagation()
-				acceptedFiles.forEach((f) => {
+				await Promise.all(acceptedFiles.map(async (f) => {
 					const formData = new FormData()
 					formData.append(
 						"file", f, f
 					)
-					axios.post(destinationUrl, formData)
-				})
+					await axios.post(destinationUrl, formData)
+				}))
+				history.go(0)
 			}}>Upload</button>}
 		</div>
 	)
